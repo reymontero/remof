@@ -21,7 +21,6 @@ github.com/zadewg/remo               :: M/o/Vfuscator1 Reverse engineering
 
 chris domas           @xoreaxeaxeax                                          
 mapez                 @zadewg    
-
 ```
 
 Movfuscator compiles Brainfuck code to only mov instructions. Arithmetic, comparisons, jumps, and everything else a program needs are all performed through mov operations; there is no self-modifying code, no transport-triggered calculation, and no other form of non-mov cheating.
