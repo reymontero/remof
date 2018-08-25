@@ -1,6 +1,31 @@
 import argparse
 #import sys; sys.setrecursionlimit(100000)
 
+
+banner = """
+       ___     ___            ___    ___     ___     ___     ___          ___     ___      
+      /\  \   /\  \    ___   /\__\  /\  \   /\__\   /\__\   /\  \        /\  \   /\  \    .
+     |::\  \ /::\  \  /\  \ /:/ _/_ \:\  \ /:/ _/_ /:/  /  /::\  \  ___ /::\  \ /::\  \   .
+     |:::\  \:/\:\  \ \:\  \:/ /\__\ \:\  \:/ /\  \:/  /  /:/\:\  \/\__\:/\:\  \:/\:\__\  .
+   __|:|\:\  \  \:\  \ \:\  \ /:/  /  \:\  \ /::\  \  /  _:/ /::\  \/  //  \:\  \ /:/  /   
+  /::::|_\:\__\/ \:\__\ \:\__\:/  / \  \:\__\:/\:\__\/  /\__\:/\:\__\_//__/ \:\__\:/__/___ 
+  \:\~~\  \/__/\ /:/  / |:|  |/  /\  \ /:/  // /:/  /\ /:/  //  \/__/ \\  \ /:/  /::::/  / 
+   \:\  \  \:\  /:/  / \|:|  |__/\:\  /:/  // /:/  /  /:/  //__/:/\:\  \\  /:/  //~~/~~~~  
+    \:\  \  \:\/:/  /\__|:|__|  \ \:\/:/  //_/:/  /:\/:/  /:\  \/__\:\  \\/:/  /:\~~\      .
+     \:\__\  \::/  /\::::/__/:\__\ \::/  /  /:/  / \::/  / \:\__\   \:\__\:/  / \:\__\    .
+      \/__/   \/__/  ~~~~    \/__/  \/__/   \/__/   \/__/   \/__/    \/__/ __/   \/__/    1
+"""
+                                                                                           
+print("\n\n")
+print(banner)
+print("\nM/o/Vfuscator1                                                         \n\n")
+print("github.com/xoreaxeaxeax/movfuscator  :: the single instruction BF compiler   ")
+print("github.com/zadewg/remo               :: M/o/Vfuscator1 Reverse engineering \n")
+print("chris domas           @xoreaxeaxeax                                          ")
+print("mapez                 @zadewg                                              \n")
+print("\n\n\n\n")
+
+
 ID_STACK_SIZE = 8192
 BF_DATA_SIZE = (128*1024)
 MMIO_SIZE = (128*1024)  # must be <= data_size (could be fixed with more movs) */
