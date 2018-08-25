@@ -32,10 +32,6 @@ Movfuscator compiles code from the esoteric language BrainF@$! to only mov instr
  BrainFuck                      | GCC                               | M/o/Vfuscator
 :------------------------------:|:---------------------------------:|:---------------------------------:
  ![BF](overview/bf.png)         | ![gcc asm](overview/gcc_asm.png)  | ![mov asm](overview/mov_asm.png)
- 
- 
-
-
 
 ### Usage
 
@@ -62,5 +58,9 @@ Movfuscator compiles code from the esoteric language BrainF@$! to only mov instr
 
 ### TODO:
 * Brainfuck++ support
+
+---
+Original project can be found on Cristopher Domas [@xoreaxeaxeax](https://github.com/xoreaxeaxeax) profile.
+
 
 
