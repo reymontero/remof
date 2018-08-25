@@ -609,6 +609,6 @@ if __name__ ==  "__main__":
 
 
 	with open(FILEIN, 'r') as infile:
-		DATA = infile.read().replace('\n', '')
+		DATA = infile.read().replace('\n', '').replace(' ','')
 
 	main(DATA)
