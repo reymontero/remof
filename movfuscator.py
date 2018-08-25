@@ -23,7 +23,7 @@ print("github.com/xoreaxeaxeax/movfuscator  :: the single instruction BF compile
 print("github.com/zadewg/remo               :: M/o/Vfuscator1 Reverse engineering \n")
 print("chris domas           @xoreaxeaxeax                                          ")
 print("mapez                 @zadewg                                              \n")
-print("\n\n\n\n")
+print("\n\n")
 
 
 ID_STACK_SIZE = 8192
