@@ -13,9 +13,6 @@
       \/__/   \/__/  ~~~~    \/__/  \/__/   \/__/   \/__/   \/__/    \/__/ __/   \/__/    1
 
 
-M/o/Vfuscator1                                                         
-
-
 github.com/xoreaxeaxeax/movfuscator  :: the single instruction BF compiler   
 github.com/zadewg/remo               :: M/o/Vfuscator1 Reverse engineering 
 
