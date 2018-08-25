@@ -602,6 +602,10 @@ def parsein():
 	MOV = args['mov']
 	CELL16 = args['cell16'] 
 	OPT = args['opt']
+	
+	if MOV
+		MMIO = True
+		NOJMP = True
 
 
 if __name__ ==  "__main__":
@@ -610,5 +614,5 @@ if __name__ ==  "__main__":
 
 	with open(FILEIN, 'r') as infile:
 		DATA = infile.read().replace('\n', '').replace(' ','')
-
+		
 	main(DATA)
