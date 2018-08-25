@@ -60,5 +60,7 @@ Movfuscator compiles code from the esoteric language BrainF@$! to only mov instr
 --opt            Enable optimization.
 ```
 
+### TODO:
+* Brainfuck++ support
 
 
