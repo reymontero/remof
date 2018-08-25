@@ -18,7 +18,7 @@ banner = """
                                                                                            
 print("\n\n")
 print(banner)
-print("\nM/o/Vfuscator1                                                         \n\n")
+
 print("github.com/xoreaxeaxeax/movfuscator  :: the single instruction BF compiler   ")
 print("github.com/zadewg/remo               :: M/o/Vfuscator1 Reverse engineering \n")
 print("chris domas           @xoreaxeaxeax                                          ")
