@@ -26,9 +26,11 @@ mapez                 @zadewg
 
 Movfuscator compiles Brainfuck code to only mov instructions. Arithmetic, comparisons, jumps, and everything else a program needs are all performed through mov operations; there is no self-modifying code, no transport-triggered calculation, and no other form of non-mov cheating.
 
-> **remo**: A tool for reverse engineering [movfuscated](https://github.com/xoreaxeaxeax/movfuscator) BF programs.
+> **remo**: A tool for [movfuscated](https://github.com/xoreaxeaxeax/movfuscator) BF programs reverse engineering.
 
 > **movfuscator**: The Original movfuscator v.1, implemented in python.
+
+&nbsp;
 
  BrainFuck                      | GCC                               | M/o/Vfuscator
 :------------------------------:|:---------------------------------:|:---------------------------------:
