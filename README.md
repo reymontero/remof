@@ -38,29 +38,25 @@ Movfuscator compiles Brainfuck code to only mov instructions. Arithmetic, compar
 
 ### Usage
 
-`` $ python3.6 movfuscator.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] ``
+`` $ python3.6 movfuscator.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
 
 ```
-https://github.com/zadewg/remo
+--help           show help message and exit
+ 
+--infile         File to read BF from.
 
-optional arguments:
-  -h, --help            show this help message and exit
- 
-  -if INFILE, --infile INFILE
-                        File to read from.
-
-  -mmio, --mmio         Use memory mapped I/O. Allows mov instructions instead
-                        of int 0x80 for I/O, but requires I/O streams to be
-                        backed by files.
+--mmio           Use memory mapped I/O. Allows mov instructions instead
+                 of int 0x80 for I/O, but requires I/O streams to be
+                 backed by files.
   
-  -nojmp, --nojmp       Replace the single jmp instruction with a faulting mov
-                        to implement the program loop.
+--nojmp          Replace the single jmp instruction with a faulting mov
+                 to implement the program loop.
   
-  -mov, --mov           Use only mov instructions same as -mmio -nojmp.
+--mov            Use only mov instructions same as -mmio -nojmp.
  
-  -cell16, --cell16     Use 16 bit memory cells.
+--cell16         Use 16 bit memory cells.
  
-  -O, --opt             Enable optimization.
+--opt            Enable optimization.
 ```
 
 
