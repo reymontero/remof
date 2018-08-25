@@ -1,5 +1,8 @@
 # remo-COMING-SOON
-A tool for reverse engineering [movfuscated](https://github.com/xoreaxeaxeax/movfuscator) BF programs.
+
+> **remo**: A tool for reverse engineering [movfuscated](https://github.com/xoreaxeaxeax/movfuscator) BF programs.
+
+> **movfuscator**: The Original movfuscator v.1, implemented in python.
 
 `` python3.6 movfuscator.py -if in.bf ``
 
