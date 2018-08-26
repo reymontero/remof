@@ -1,4 +1,4 @@
-# remof-COMING-SOON
+# REMOF
 
 ```
       ___           ___           ___           ___           ___     
@@ -37,8 +37,10 @@ Movfuscator compiles code from the esoteric language BrainF@$! to only mov instr
 
 ### Usage
 
-`` $ python3.6 movfuscator.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
+`` $ python3.6 movcircus.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
+`` $ python3.6 remof.py [-h] -if INFILE ``
 
+movcircus takes the following flags as arguments:
 ```
 --help           show help message and exit
  
@@ -60,9 +62,10 @@ Movfuscator compiles code from the esoteric language BrainF@$! to only mov instr
 
 ### TODO:
 * Brainfuck++ support
+* Code styling, optimization
 
 ---
-Original project can be found on Cristopher Domas [@xoreaxeaxeax](https://github.com/xoreaxeaxeax) profile.
+Original M/o/Vfuscator can be found on Cristopher Domas [@xoreaxeaxeax](https://github.com/xoreaxeaxeax) profile.
 
 
 
