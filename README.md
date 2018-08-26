@@ -25,9 +25,9 @@ mapez                 @zadewg
 
 Movfuscator compiles code from the esoteric language BrainF@$! to only mov instructions, and is best used in conjunction with the BFBASIC compiler by Jeffry Johnston. Arithmetic, comparisons, jumps, and everything else a program may need are all performed through mov operations; there is no self-modifying code, no transport-triggered calculation, and no other form of non-mov cheating.
 
-> **remo**: A tool for [movfuscated](https://github.com/xoreaxeaxeax/movfuscator) BF programs reverse engineering.
+> **remof**: A tool for [movfuscated](https://github.com/xoreaxeaxeax/movfuscator) BF programs reverse engineering.
 
-> **movfuscator**: The Original movfuscator v.1, implemented in python.
+> **movcircus**: The Original movfuscator, implemented in python.
 
 &nbsp;
 
