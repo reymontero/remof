@@ -8,99 +8,125 @@ with open('out3.asm', 'r') as infile:
 	DATA = DATA[DATA.find('USE32') : ] # PRE-CLEANING
 
 
+def preprocess(DATA):
+	DATA = DATA.replace('\n', '').replace('\t', '').replace(' ','')
+	return DATA
+
 
 
 BF_DATA_SIZE = DATA[(DATA.find('DATAequ')+7) : (DATA.find('%macroc_s1'))]
 
-NOJMP = True if "jmp loop" in DATA else False;
-MMIO = True if "MMIO" in DATA else False;
-CELL16 = True if asm.comma['cell16'] in DATA or asm.plus['cell16'] in DATA or asm.minus['cell16'] in DATA or asm.bthan['cell16'] in DATA or asm.lthan['cell16'] in DATA or asm.comma['mmcell'] in DATA or asm.plus['opcell'] in DATA or asm.minus['opcell'] in DATA or asm.lthan['opcell'] in DATA or asm.bthan['opcell'] in DATA else False
 
-OPT = True if asm.plus['opt'] in DATA or asm.minus['opt'] in DATA or asm.lthan['opt'] in DATA or asm.bthan['opt'] in DATA or asm.plus['opcell'] in DATA or asm.minus['opcell'] in DATA or asm.lthan['opcell'] in DATA or asm.bthan['opcell'] in DATA else False
-
-
-ID_PATTERN = re.escape(asm.obrack['std'].replace('\n', '').replace('\t', '').replace(' ','').replace('{}', 'XXXXX')).replace('XXXXX', '([0-9]+)')
-
-
-
-AT = asm.at['std'].replace('\n', '').replace('\t', '').replace(' ','')
-CLOSE = asm.close['std'].replace('\n', '').replace('\t', '').replace(' ','')
-
-
-
-
-
-
-INTRO = asm.intro['std'].replace('\n', '').replace('\t', '').replace(' ','')
+INTRO = preprocess(asm.intro['std'])
 INTRO = INTRO.format(BF_DATA_SIZE)
 
-DOT = asm.dot['std'].replace('\n', '').replace('\t', '').replace(' ','')
-COMMA = asm.comma['std'].replace('\n', '').replace('\t', '').replace(' ','')
-PLUS = asm.plus['std'].replace('\n', '').replace('\t', '').replace(' ','')
-MINUS = asm.minus['std'].replace('\n', '').replace('\t', '').replace(' ','')
-LTHAN = asm.lthan['std'].replace('\n', '').replace('\t', '').replace(' ','')
-BTHAN = asm.bthan['std'].replace('\n', '').replace('\t', '').replace(' ','')
-#OBRACK = re.escape(asm.obrack['std'].replace('\n', '').replace('\t', '').replace(' ','').replace('{}', 'XXXXX')).replace('XXXXX', '([0-9]+)')
-#CBRACK = re.escape(asm.cbrack['std'].replace('\n', '').replace('\t', '').replace(' ','').replace('{}', 'XXXXX')).replace('XXXXX', '([0-9]+)')
+AT    = preprocess(asm.at['std'])
+CLOSE = preprocess(asm.close['std'])
+DOT   = preprocess(asm.dot['std'])
+COMMA = preprocess(asm.comma['std'])
+PLUS  = preprocess(asm.plus['std'])
+MINUS = preprocess(asm.minus['std'])
+LTHAN = preprocess(asm.lthan['std'])
+BTHAN = preprocess(asm.bthan['std'])
+
+OBRACK = re.escape(preprocess(asm.obrack['std']).replace('{}', 'XXXXX')).replace('XXXXX', '([0-9]+)')
+CBRACK = re.escape(preprocess(asm.cbrack['std']).replace('{}', 'XXXXX')).replace('XXXXX', '([0-9]+)')
+
+
+def detect_flags(DATA):
+
+	global NOJMP, MMIO, CELL16, OPT
+	
+	NOJMP = True if "jmp loop" in DATA else False;
+	MMIO = True if "MMIO" in DATA else False;
+
+	CELL_ARR = {
+			'cell16' : ['comma', 'plus', 'minus', 'bthan', 'lthan'], 
+			'opcell' : ['plus', 'minus', 'lthan', 'bthan'], 
+			'mmcell' : ['comma'],
+		    }
+
+
+	OPT_ARR = {
+			'opt' : ['plus', 'minus', 'lthan', 'bthan'], 
+			'opcell' : ['plus', 'minus', 'lthan', 'bthan'], 
+		  }
+
+	CELL16, OPT = False, False
+
+	for key, values in CELL_ARR.items():
+		for v in values:
+			XCELL16 = True if eval("asm.{}['{}']".format(v, key)) in DATA else False
+			if XCELL16 == True:
+				CELL16 = True
+
+
+	for key, values in OPT_ARR.items():
+		for v in values:
+			XOPT = True if eval("asm.{}['{}']".format(v, key)) in DATA else False
+			if XOPT == True:
+				OPT = True
+
+
+detect_flags(DATA)
 
 if MMIO: 
 	MMIO_SIZE = DATA[(DATA.find('MMIO_SIZEequ')+12) : DATA.find('section.bss')]
 
-	INTRO = asm.intro['mmio'].replace('\n', '').replace('\t', '').replace(' ','')
+	INTRO = preprocess(asm.intro['mmio'])
 	INTRO = INTRO.format(BF_DATA_SIZE, MMIO_SIZE)
 
-	DOT = asm.dot['mmio'].replace('\n', '').replace('\t', '').replace(' ','')
-	COMMA = asm.comma['mmio'].replace('\n', '').replace('\t', '').replace(' ','')
-	PLUS = asm.plus['std'].replace('\n', '').replace('\t', '').replace(' ','')
-	MINUS = asm.minus['std'].replace('\n', '').replace('\t', '').replace(' ','')
-	LTHAN = asm.lthan['std'].replace('\n', '').replace('\t', '').replace(' ','')
-	BTHAN = asm.bthan['std'].replace('\n', '').replace('\t', '').replace(' ','')
+	DOT = preprocess(asm.dot['mmio'])
+	COMMA = preprocess(asm.comma['mmio'])
+
 
 
 
 if NOJMP:
-	INTRO = asm.intro['nojmp'].replace('\n', '').replace('\t', '').replace(' ','')
+	INTRO = preprocess(asm.intro['nojmp'])
 	INTRO = INTRO.format(BF_DATA_SIZE)
-	CLOSE = asm.close['nojmp'].replace('\n', '').replace('\t', '').replace(' ','')
+
+	CLOSE = preprocess(asm.close['nojmp'])
 
 
 
 if CELL16:
-	COMMA = asm.comma['cell16'].replace('\n', '').replace('\t', '').replace(' ','')
-	PLUS = asm.plus['cell16'].replace('\n', '').replace('\t', '').replace(' ','')
-	MINUS = asm.minus['cell16'].replace('\n', '').replace('\t', '').replace(' ','')
-	LTHAN = asm.lthan['cell16'].replace('\n', '').replace('\t', '').replace(' ','')
-	BTHAN = asm.bthan['cell16'].replace('\n', '').replace('\t', '').replace(' ','')
+	COMMA = preprocess(asm.comma['cell16'])
+	PLUS = preprocess(asm.plus['cell16'])
+	MINUS = preprocess(asm.minus['cell16'])
+	LTHAN = preprocess(asm.lthan['cell16'])
+	BTHAN = preprocess(asm.bthan['cell16'])
 	#OBRACK = re.escape(asm.obrack['cell16'].replace('\n', '').replace('\t', '').replace(' ','').replace('{}', 'XXXXX')).replace('XXXXX', '([0-9]+)')
 	#CBRACK = re.escape(asm.cbrack['cell16'].replace('\n', '').replace('\t', '').replace(' ','').replace('{}', 'XXXXX')).replace('XXXXX', '([0-9]+)')
 
 
 
 if OPT:
-	PLUS = asm.plus['opt'].replace('\n', '').replace('\t', '').replace(' ','')
-	MINUS = asm.minus['opt'].replace('\n', '').replace('\t', '').replace(' ','')
-	LTHAN = asm.lthan['opt'].replace('\n', '').replace('\t', '').replace(' ','')
-	BTHAN = asm.bthan['opt'].replace('\n', '').replace('\t', '').replace(' ','')
+	PLUS = preprocess(asm.plus['opt'])
+	MINUS = preprocess(asm.minus['opt'])
+	LTHAN = preprocess(asm.lthan['opt'])
+	BTHAN = preprocess(asm.bthan['opt'])
 
 
 
 if MMIO and NOJMP:
-	INTRO = asm.intro['mmjmp'].replace('\n', '').replace('\t', '').replace(' ','')
+	INTRO = preprocess(asm.intro['mmjmp'])
 	INTRO = INTRO.format(BF_DATA_SIZE, MMIO_SIZE)
 
 
 
 if OPT and CELL16:
-	PLUS = asm.plus['opcell'].replace('\n', '').replace('\t', '').replace(' ','')
-	MINUS = asm.minus['opcell'].replace('\n', '').replace('\t', '').replace(' ','')
-	LTHAN = asm.lthan['opcell'].replace('\n', '').replace('\t', '').replace(' ','')
-	BTHAN = asm.bthan['opcell'].replace('\n', '').replace('\t', '').replace(' ','')
+	PLUS = preprocess(asm.plus['opcell'])
+	MINUS = preprocess(asm.minus['opcell'])
+	LTHAN = preprocess(asm.lthan['opcell'])
+	BTHAN = preprocess(asm.bthan['opcell'])
 
 
 
 if MMIO and CELL16:
-	COMMA = asm.comma['mmcell'].replace('\n', '').replace('\t', '').replace(' ','')
+	COMMA = preprocess(asm.comma['mmcell'])
 	
+
 print("\n")
 print("MMIO Flag: {}".format(MMIO))
 print("NOJMP Flag: {}".format(NOJMP))
@@ -110,12 +136,11 @@ print("\n\n")
 
 
 
-
 if DATA[:len(INTRO)] == INTRO:
 	counter = len(INTRO)
-	print("[+] Found macros")
+	print("[+] Found macros\n")
 else:
-	print("[!] No macros")
+	print("[!] No macros\n")
 
 
 while counter < len(DATA):
@@ -155,5 +180,13 @@ while counter < len(DATA):
 	else:
 		print("Could not decompile program")
 		break
+
+
+
+
+
+
+
+
 
 
