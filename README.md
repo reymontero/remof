@@ -43,8 +43,7 @@ Movfuscator compiles code from the esoteric language BrainF@$! to only mov instr
 `` $ python3.6 remof.py [-h] -if INFILE ``  
 
 &nbsp;
-
-movcircus takes the following flags as arguments:
+***movcircus takes the following flags as arguments:***
 ```
 --help           show help message and exit
  
