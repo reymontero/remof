@@ -26,6 +26,13 @@ mapez                 @zadewg
 ## Overview 
 Movfuscator compiles code from the esoteric language BrainF@$! to only mov instructions. Arithmetic, comparisons, jumps, and everything else a program may need are all performed through mov operations; there is no self-modifying code, no transport-triggered calculation, and no other form of non-mov cheating.
 
+
+&nbsp;
+
+ BrainFuck                      | GCC                               | M/o/Vfuscator
+:------------------------------:|:---------------------------------:|:---------------------------------:
+ ![BF](overview/bf.png)         | ![gcc asm](overview/gcc_asm.png)  | ![mov asm](overview/mov_asm.png)
+
 The following tools can be found under this repository:
 
 > **remof**: A tool for [movfuscated](https://github.com/xoreaxeaxeax/movfuscator) BF programs reverse engineering.
@@ -33,12 +40,6 @@ The following tools can be found under this repository:
 > **movcircus**: The Original movfuscator, implemented in python.
 
 *REMOF will reverse the steps performed by the obfuscator when compiling the program, effectively extracting plain BF code. External tools for instruction shuffling can be used in conjunction with movcircus and movfuscator to harden it against this kind of pattern-matching attacks.*
-
-&nbsp;
-
- BrainFuck                      | GCC                               | M/o/Vfuscator
-:------------------------------:|:---------------------------------:|:---------------------------------:
- ![BF](overview/bf.png)         | ![gcc asm](overview/gcc_asm.png)  | ![mov asm](overview/mov_asm.png)
 
 ---
 ### Usage
