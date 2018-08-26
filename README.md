@@ -42,6 +42,11 @@ The following tools can be found under this repository:
 *REMOF will reverse the steps performed by the obfuscator when compiling the program, effectively extracting plain BF code. External tools for instruction shuffling can be used in conjunction with movcircus and movfuscator to harden it against this kind of pattern-matching attacks.*
 
 ---
+
+### Sample output
+![demo_remo](overview/remo_demo.gif)
+
+
 ### Usage
 
 `` $ python3.6 movcircus.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
@@ -67,7 +72,6 @@ The following tools can be found under this repository:
  
 --opt            Enable optimization.
 ```
-
 
 ---
 Original M/o/Vfuscator can be found on Cristopher Domas [@xoreaxeaxeax](https://github.com/xoreaxeaxeax) profile.
