@@ -603,7 +603,7 @@ def parsein():
 	CELL16 = args['cell16'] 
 	OPT = args['opt']
 	
-	if MOV
+	if MOV:
 		MMIO = True
 		NOJMP = True
 
