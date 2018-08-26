@@ -35,10 +35,14 @@ Movfuscator compiles code from the esoteric language BrainF@$! to only mov instr
 :------------------------------:|:---------------------------------:|:---------------------------------:
  ![BF](overview/bf.png)         | ![gcc asm](overview/gcc_asm.png)  | ![mov asm](overview/mov_asm.png)
 
+---
 ### Usage
 
 `` $ python3.6 movcircus.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
-`` $ python3.6 remof.py [-h] -if INFILE ``
+
+`` $ python3.6 remof.py [-h] -if INFILE ``  
+
+&nbsp;
 
 movcircus takes the following flags as arguments:
 ```
