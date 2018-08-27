@@ -978,7 +978,6 @@ def main(DATA):
 	
 
 	x = "mov cs, ax" if NOJMP else "jmp loop"
-	counter += 1
 	out(x, counter)
 
 
