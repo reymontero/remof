@@ -197,7 +197,7 @@ def main(DATA):
 
 		if DATA[counter : counter + len(CLOSE)] == CLOSE:
 			counter += len(CLOSE)
-			print("\n[+] {} Bytes decompiled succesfuly".format(len(DATA)))
+			print("\n[+] {} Bytes decompiled succesfuly".format(getSize("{}.asm".format(FILEIN))))
 
 		else:
 			continue
