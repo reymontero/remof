@@ -51,7 +51,7 @@ The following tools can be found under this repository:
 
 `` $ python3.6 movcircus.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
 
-`` $ python3.6 remof.py [-h] -if INFILE ``  
+`` $ python3.6 remof.py [-h] -if INFILE -of OUTFILE ``  
 
 &nbsp;
 
