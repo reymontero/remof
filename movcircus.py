@@ -25,17 +25,12 @@ BF_DATA_SIZE = (128*1024)
 MMIO_SIZE = (128*1024)  # must be <= data_size (could be fixed with more movs) */
 
 
-
-
 def out(string, counter):
 
 	HEX = ''.join([hex(ord(x))[2:] + ' ' for x in string]).ljust(60, ' ')
 	print((('0x%0*X' % (8, counter)).lower() + '\t' + HEX + '\t' + string))
 
-
-
 	
-
 def main(DATA):
 
 	next_id = 1
