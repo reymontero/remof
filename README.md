@@ -43,8 +43,63 @@ The following tools can be found under this repository:
 
 ---
 
-### Sample output
-![demo_remo](overview/remo_demo.gif)
+## Output
+
+**REMOF**
+
+![demo_remof](overview/remo_demo.gif)
+
+&nbsp;
+
+**MOVCIRCUS**
+```
+     ___         ___                    ___                  ___         ___         ___         ___      
+    /\  \       /\  \        ___       /\__\                /\  \       /\__\       /\  \       /\__\     
+   |::\  \     /::\  \      /\  \     /:/  /      ___      /::\  \     /:/  /       \:\  \     /:/ _/_    
+   |:|:\  \   /:/\:\  \     \:\  \   /:/  /      /\__\    /:/\:\__\   /:/  /         \:\  \   /:/ /\  \   
+ __|:|\:\  \ /:/  \:\  \     \:\  \ /:/  /  ___ /:/__/   /:/ /:/  /  /:/  /  ___ ___  \:\  \ /:/ /::\  \  
+/::::|_\:\__/:/__/ \:\__\___  \:\__/:/__/  /\__/::\  \  /:/_/:/__/__/:/__/  /\__/\  \  \:\__/:/_/:/\:\__\ 
+\:\~~\  \/__\:\  \ /:/  /\  \ |:|  \:\  \ /:/  \/\:\  \_\:\/:::::/  \:\  \ /:/  \:\  \ /:/  \:\/:/ /:/  / 
+ \:\  \      \:\  /:/  /\:\  \|:|  |\:\  /:/  / ~~\:\/\__\::/~~/~~~~ \:\  /:/  / \:\  /:/  / \::/ /:/  /  
+  \:\  \      \:\/:/  /  \:\__|:|__| \:\/:/  /     \::/  /\:\~~\      \:\/:/  /   \:\/:/  /   \/_/:/  /   
+   \:\__\      \::/  /    \::::/__/   \::/  /      /:/  /  \:\__\      \::/  /     \::/  /      /:/  /    
+    \/__/       \/__/      ~~~~        \/__/       \/__/    \/__/       \/__/       \/__/       \/__/     
+
+
+github.com/xoreaxeaxeax/movfuscator  :: The single instruction BF compiler   
+github.com/zadewg/remof              :: M/o/Vfuscator Python implementation    
+
+chris domas           @xoreaxeaxeax                                              
+mapez                 @zadewg                                                  
+
+
+
+
+0x001a9c35	6d 6f 76 20 65 61 78 2c 20 5b 6f 6e 5d                      	mov eax, [on]
+0x001a9c36	6d 6f 76 20 65 62 78 2c 20 5b 73 5f 6d 73 2b 65 61 78 5d    	mov ebx, [s_ms+eax]
+0x001a9c37	6d 6f 76 20 65 64 78 2c 20 5b 64 70 5d                      	mov edx, [dp]
+0x001a9c38	6d 6f 76 20 65 61 78 2c 20 30                               	mov eax, 0
+0x001a9c39	6d 6f 76 20 61 6c 2c 20 5b 65 62 78 2b 65 64 78 5d          	mov al, [ebx+edx]
+0x001a9c3a	6d 6f 76 20 61 6c 2c 20 5b 69 6e 63 62 2b 65 61 78 5d       	mov al, [incb+eax]
+0x001a9c3b	6d 6f 76 20 5b 65 62 78 2b 65 64 78 5d 2c 20 61 6c          	mov [ebx+edx], al
+0x001a9c3c	                                                            	
+0x001a9c3d	6d 6f 76 20 65 61 78 2c 20 5b 6f 6e 5d                      	mov eax, [on]
+0x001a9c3e	6d 6f 76 20 65 61 78 2c 20 5b 68 2b 65 61 78 5d             	mov eax, [h+eax]
+0x001a9c3f	6d 6f 76 20 65 61 78 2c 20 5b 65 61 78 5d                   	mov eax, [eax]
+0x001a9c40	                                                            	
+0x001a9c41	6d 6f 76 20 65 61 78 2c 20 5b 6f 6e 5d                      	mov eax, [on]
+0x001a9c42	6d 6f 76 20 65 61 78 2c 20 5b 73 5f 6d 7a 2b 65 61 78 5d    	mov eax, [s_mz+eax]
+0x001a9c43	                                                            	
+0x001a9c44	6d 6f 76 20 65 64 78 2c 20 5b 64 70 5d                      	mov edx, [dp]
+0x001a9c45	6d 6f 76 20 61 6c 2c 20 5b 65 61 78 2b 65 64 78 5d          	mov al, [eax+edx]
+0x001a9c46	6d 6f 76 20 5b 63 5d 2c 20 61 6c                            	mov [c], al
+0x001a9c47	                                                            	
+0x001a9c48	6d 6f 76 20 65 61 78 2c 20 34                               	mov eax, 4
+0x001a9c49	6d 6f 76 20 65 62 78 2c 20 31                               	mov ebx, 1
+0x001a9c4a	6d 6f 76 20 65 63 78 2c 20 63                               	mov ecx, c
+0x001a9c4b	6d 6f 76 20 65 64 78 2c 20 31                               	mov edx, 1
+0x001a9c4c	69 6e 74 20 30 78 38 30                                     	int 0x80
+```
 
 
 ### Usage
