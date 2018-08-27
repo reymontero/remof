@@ -45,12 +45,6 @@ The following tools can be found under this repository:
 
 ## Output
 
-**REMOF**
-
-![demo_remof](overview/remo_demo.gif)
-
-&nbsp;
-
 **MOVCIRCUS**
 ```
  /$$      /$$  /$$$$$$  /$$    /$$  /$$$$$$  /$$$$$$ /$$$$$$$   /$$$$$$  /$$   /$$  /$$$$$$     
@@ -98,6 +92,11 @@ mapez                 @zadewg
 0x001a9c4c	69 6e 74 20 30 78 38 30                                     	int 0x80
 ```
 
+&nbsp;
+
+**REMOF**
+
+![demo_remof](overview/remo_demo.gif)
 
 ### Usage
 
