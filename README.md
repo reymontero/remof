@@ -41,6 +41,17 @@ The following tools can be found under this repository:
 
 *REMOF will reverse the steps performed by the obfuscator when compiling the program, effectively extracting plain BF code. External tools for instruction shuffling can be used in conjunction with movcircus and movfuscator to harden it against this kind of pattern-matching attacks.*
 
+## Obfuscating other languages
+
+Languages other than BF can be compiled using MOVCIRCUS  by first converting those languages to BF. Currently BF compilable languages are:
+
+* BASIC, using Jeffry Johnston's [BFBASIC](https://esolangs.org/wiki/BFBASIC) compiler.
+* C using the [LIBBF](http://savannah.nongnu.org/projects/libbf) project.
+* FBF using Tritonio's [FBF](http://www.inshame.com/search/label/My%20Progs%3A%20FuckBrainfuck)
+
+
+*Yes sir, you can obfuscate C and BASIC with this bad boy.*
+
 ---
 
 ## Output
