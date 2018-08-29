@@ -43,7 +43,7 @@ The following tools can be found under this repository:
 
 ## Obfuscating other languages
 
-Languages other than BF can be compiled using MOVCIRCUS  by first converting those languages to BF. Currently BF compilable languages are:
+Languages other than BF can be compiled using MOVCIRCUS  by first converting those languages to BF. Current BF compilable languages are:
 
 * BASIC, using Jeffry Johnston's [BFBASIC](https://esolangs.org/wiki/BFBASIC) compiler.
 * C using the [LIBBF](http://savannah.nongnu.org/projects/libbf) project.
