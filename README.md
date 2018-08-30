@@ -53,6 +53,32 @@ Languages other than BF can be compiled using MOVCIRCUS  by first converting tho
 
 *Yes sir, you can obfuscate C and BASIC with this bad boy.*
 
+## Usage
+
+`` $ python3.6 movcircus.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
+
+`` $ python3.6 remof.py [-h] -if INFILE -of OUTFILE ``  
+
+&nbsp;
+
+***movcircus takes the following flags as arguments:***
+```
+--infile         File to read BF from.
+
+--mmio           Use memory mapped I/O. Allows mov instructions instead
+                 of int 0x80 for I/O, but requires I/O streams to be
+                 backed by files.
+  
+--nojmp          Replace the single jmp instruction with a faulting mov
+                 to implement the program loop.
+  
+--mov            Use only mov instructions same as -mmio -nojmp.
+ 
+--cell16         Use 16 bit memory cells.
+ 
+--opt            Enable optimization.
+```
+
 ---
 
 ## Output
@@ -110,31 +136,6 @@ mapez                 @zadewg
 
 ![demo_remof](overview/remo_demo.gif)
 
-### Usage
-
-`` $ python3.6 movcircus.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
-
-`` $ python3.6 remof.py [-h] -if INFILE -of OUTFILE ``  
-
-&nbsp;
-
-***movcircus takes the following flags as arguments:***
-```
---infile         File to read BF from.
-
---mmio           Use memory mapped I/O. Allows mov instructions instead
-                 of int 0x80 for I/O, but requires I/O streams to be
-                 backed by files.
-  
---nojmp          Replace the single jmp instruction with a faulting mov
-                 to implement the program loop.
-  
---mov            Use only mov instructions same as -mmio -nojmp.
- 
---cell16         Use 16 bit memory cells.
- 
---opt            Enable optimization.
-```
 
 ---
 Original M/o/Vfuscator can be found on Cristopher Domas [@xoreaxeaxeax](https://github.com/xoreaxeaxeax) profile.
