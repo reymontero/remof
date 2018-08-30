@@ -55,7 +55,7 @@ Languages other than BF can be compiled using MOVCIRCUS  by first converting tho
 
 ## Usage
 
-`` $ python3.6 movcircus.py [-h] -if INFILE [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
+`` $ python3.6 movcircus.py [-h] -if INFILE [-of OUTFILE] [-mmio] [-nojmp] [-mov] [-cell16] [-O] > out.asm ``
 
 `` $ python3.6 remof.py [-h] -if INFILE -of OUTFILE ``  
 
@@ -64,6 +64,8 @@ Languages other than BF can be compiled using MOVCIRCUS  by first converting tho
 ***movcircus takes the following flags as arguments:***
 ```
 --infile         File to read BF from.
+
+--outfile        File to write to.
 
 --mmio           Use memory mapped I/O. Allows mov instructions instead
                  of int 0x80 for I/O, but requires I/O streams to be
