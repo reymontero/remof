@@ -28,10 +28,11 @@ Movfuscator compiles code from the esoteric language BrainF@$! to only mov instr
 
 
 &nbsp;
-
+<!---
  BrainFuck                      | GCC                               | M/o/Vfuscator
 :------------------------------:|:---------------------------------:|:---------------------------------:
  ![BF](overview/bf.png)         | ![gcc asm](overview/gcc_asm.png)  | ![mov asm](overview/mov_asm.png)
+-->
 
 The following tools can be found under this repository:
 
