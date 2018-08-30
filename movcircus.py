@@ -27,8 +27,12 @@ MMIO_SIZE = (128*1024)  # must be <= data_size (could be fixed with more movs) *
 
 def out(string, counter):
 
-	HEX = ''.join([hex(ord(x))[2:] + ' ' for x in string]).ljust(60, ' ')
-	print((('0x%0*X' % (8, counter)).lower() + '\t' + HEX + '\t' + string))
+	HEX = ''.join([hex(ord(x))[2:] + ' ' for x in string]).ljust(60, ' ') 
+	HEXOUT = HEX if len(HEX) <= 60 else HEX[0:60]
+	print((('0x%0*X' % (8, counter)).lower() + '\t' + HEXOUT + '\t' + string))
+	
+	if FILEOUT:
+		WFILE.write(string + '\n')
 
 	
 def main(DATA):
@@ -975,21 +979,23 @@ def main(DATA):
 	x = "mov cs, ax" if NOJMP else "jmp loop"
 	out(x, counter)
 
-
+	
 def parsein():
 
-	global FILEIN, MMIO, NOJMP, MOV, CELL16, OPT
+	global FILEIN, FILEOUT, MMIO, NOJMP, MOV, CELL16, OPT
 
 	parser = argparse.ArgumentParser(description='https://github.com/zadewg/remo')
 	parser.add_argument('-if','--infile', help='File to read from.', required=True)
+	parser.add_argument('-of','--outfile', help='File to write to.', required=False)
 	parser.add_argument('-mmio','--mmio', help='Use memory mapped I/O.  Allows mov instructions instead of int 0x80 for I/O, but requires I/O streams to be backed by files.', action='store_true')
 	parser.add_argument('-nojmp','--nojmp', help='Replace the single jmp instruction with a faulting mov to implement the program loop.', action='store_true')
 	parser.add_argument('-mov','--mov', help='Use only mov instructions same as -mmio -nojmp.', action='store_true')
 	parser.add_argument('-cell16','--cell16', help='Use 16 bit memory cells.', action='store_true')
-	parser.add_argument('-O','--opt', help='Enable optimization.', action='store_true')
+	parser.add_argument('-opt','--opt', help='Enable optimization.', action='store_true')
 	args = vars(parser.parse_args())
 
 	FILEIN = args['infile']
+	FILEOUT = args['outfile']
 	MMIO = args['mmio']
 	NOJMP = args['nojmp']
 	MOV = args['mov']
@@ -1007,6 +1013,11 @@ if __name__ ==  "__main__":
 
 	with open(FILEIN, 'r') as infile:
 		DATA = infile.read().replace('\n', '').replace(' ','')
-		
-	main(DATA)
+	
+	if FILEOUT:
+		WFILE = open(FILEOUT, 'w+')
+		main(DATA)
+		WFILE.close()
 
+	else:
+		main(DATA)
